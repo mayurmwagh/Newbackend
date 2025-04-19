@@ -1,9 +1,9 @@
 pipeline {
     agent any 
-    environment {
-        DOCKER_USERNAME = credentials('docker-username') // Jenkins credential ID
-        DOCKER_PASSWORD = credentials('docker-password') // Jenkins credential ID
-    }
+    // environment {
+    //     DOCKER_USERNAME = credentials('docker-username') // Jenkins credential ID
+    //     DOCKER_PASSWORD = credentials('docker-password') // Jenkins credential ID
+    // }
     stages {
         stage('Pull') {
             steps {
@@ -18,7 +18,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
                     docker build . -t mayurwagh/cdec-new-backend:latest 
                     docker push mayurwagh/cdec-new-backend:latest
                     docker rmi mayurwagh/cdec-new-backend:latest
