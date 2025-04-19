@@ -17,7 +17,7 @@ pipeline {
                     docker build . -t mayurwagh/cdec-new-backend:latest 
                     docker push mayurwagh/cdec-new-backend:latest
                     docker rmi mayurwagh/cdec-new-backend:latest
-                    kubectl apply -f ./yaml/
+                    kubectl apply -f ./deploy/
                 '''
             }
         }
