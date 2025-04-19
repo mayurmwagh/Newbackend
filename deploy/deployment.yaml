@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend-app
-          image: mayurwagh/oncdecb13:latest
+          image: cdec-new-backend:latest
           ports:
             - containerPort: 8080
         
